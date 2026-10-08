@@ -265,7 +265,7 @@ void setup() {
   tft.setRotation(3);
   //tft.fillScreen(tft.color565(150, 175, 130));
   tft.fillScreen(ILI9341_BLACK);
-  tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+  tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
 
   digitalWrite(TFT_BLK, HIGH);
 
@@ -374,12 +374,12 @@ void loop() {
   else if(pressedBtn == "SHIFT") {
     shift = !shift;
     alpha = false;
-    tft.fillRect(0, 110, 320, 17, tft.color565(150, 175, 130));
+    tft.fillRect(0, 110, 320, 17, tft.color565(155, 150, 85));
   } 
   else if(pressedBtn == "ALPHA") {
     alpha = !alpha;
     shift = false;
-    tft.fillRect(0, 110, 320, 17, tft.color565(150, 175, 130));
+    tft.fillRect(0, 110, 320, 17, tft.color565(155, 150, 85));
   } 
   else if(pressedBtn == "left" || pressedBtn == "right" || pressedBtn == "up" || pressedBtn == "down") {
     if(pressedBtn == "left") {
@@ -390,7 +390,7 @@ void loop() {
         } else if (selectedLogIdx > 0) {
           selectedLogIdx--;
         }
-        tft.fillRect(0, 125, 320, 65, tft.color565(150, 175, 130)); 
+        tft.fillRect(0, 125, 320, 65, tft.color565(155, 150, 85)); 
         indicator2 = true;
       } else err = "";
     }
@@ -404,7 +404,7 @@ void loop() {
             selectedLogIdx = -1;
           }
         }
-        tft.fillRect(0, 125, 320, 65, tft.color565(150, 175, 130)); 
+        tft.fillRect(0, 125, 320, 65, tft.color565(155, 150, 85)); 
         indicator2 = true;
       } else err = "";
     }
@@ -427,7 +427,7 @@ void loop() {
           scrolling2 = false;
           count = 0;
           for (int i = 0; i < 50; i++) expression[i] = "";
-          tft.fillRect(0, 125, 320, 65, tft.color565(150, 175, 130));
+          tft.fillRect(0, 125, 320, 65, tft.color565(155, 150, 85));
         }
       }
     }
@@ -502,7 +502,7 @@ void loop() {
     selectedLogIdx = -1;
     windowFirstLog = 0;
     lastPrintedLogIdx = -999;
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
     digitalWrite(TFT_BLK, LOW);
 
     gpio_hold_en((gpio_num_t)TFT_BLK);
@@ -562,7 +562,7 @@ void loop() {
     hyp = false;
   }
   else if(pressedBtn == "MODE") {
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
     shift = false;
     alpha = false;
     hyp = false;
@@ -588,7 +588,7 @@ void loop() {
       if(pressedBtn == "MODE") {
         modeNum++;
         if(modeNum > 3) break;
-        tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+        tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
       }
 
       int selected = 0;
@@ -624,7 +624,7 @@ void loop() {
         if(selected > 0) {
           displayMode = selected-1;
 
-          tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+          tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
           tft.setFont(&calcFont);
           tft.setCursor(0, 155);
 
@@ -698,7 +698,7 @@ void loop() {
         tft.setCursor(0, 216);
         tft.println("1");
         if(selected > 0) {
-          tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+          tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
           tft.setFont(&calcFont);
           tft.setCursor(0, 155);
           tft.println("ab/c d/c");
@@ -763,11 +763,11 @@ void loop() {
 
     } while(pressedBtn == "" || !isNumber(pressedBtn) || pressedBtn == "MODE");
 
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
     saveToEEPROM();
   }
   else if (pressedBtn == "CLR") {
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
     shift = false;
     alpha = false;
     hyp = false;
@@ -795,7 +795,7 @@ void loop() {
       } while(pressedBtn == "");
     } while(pressedBtn == "" || pressedBtn != "=");
 
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
 
     if(selected < 1) selected=1;
     else if(selected > 3) selected=3;
@@ -882,7 +882,7 @@ void loop() {
       pressedBtn = scanNumberKeypad();
     } while(pressedBtn == "" || pressedBtn != "=");
 
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
     saveToEEPROM();
   }
   else if(pressedBtn == "SPEC") {
@@ -960,7 +960,7 @@ void loop() {
     dot = 0;
   }
   else if (pressedBtn == "DRG") {
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
     shift = false;
     alpha = false;
     hyp = false;
@@ -977,7 +977,7 @@ void loop() {
       pressedBtn = scanNumberKeypad();
     } while(pressedBtn == "" || !isNumber(pressedBtn));
 
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
 
     int selected =  pressedBtn.toInt();
     if(selected < 1) selected=1;
@@ -1024,7 +1024,7 @@ void loop() {
     int size = 10;
     for(int i = 0; i < newResult.length(); i++) if(newResult[i] == '.') size = 11;
     newResult = newResult.substring(0, size);
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
 
     dot = 0;
     shift = false;
@@ -1041,7 +1041,7 @@ void loop() {
     int size = 10;
     for(int i = 0; i < newResult.length(); i++) if(newResult[i] == '.') size = 11;
     newResult = newResult.substring(0, size);
-    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
 
     dot = 0;
     shift = false;
@@ -1064,7 +1064,7 @@ void loop() {
         windowFirstLog = 0;
         lastPrintedLogIdx = -999;
       }
-      tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
+      tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
     }
     if(!indicator2 && shouldPrependAns(pressedBtn) && err == "") expression[count++] = "Ans";
 
@@ -1130,7 +1130,7 @@ void loop() {
       }
     }
 
-    tft.fillRect(0, 110, 320, 17, tft.color565(150, 175, 130));
+    tft.fillRect(0, 110, 320, 17, tft.color565(155, 150, 85));
     shift = false;
     alpha = false;
     hyp = false;
@@ -1197,9 +1197,9 @@ void loop() {
     }
   }
 
-  if (pressedBtn == "=" || pressedBtn == "%" || pressedBtn == "MODE" || pressedBtn == "ON" || pressedBtn == "AC" || pressedBtn == "eng ") tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
-  else if (pressedBtn == "SHIFT" || pressedBtn == "ALPHA" || pressedBtn == "hyp " || pressedBtn == "INS") tft.fillRect(0, 110, 320, 17, tft.color565(150, 175, 130));
-  else if(pressedBtn == "DEL") tft.fillRect(0, 125, 320, 35, tft.color565(150, 175, 130));
+  if (pressedBtn == "=" || pressedBtn == "%" || pressedBtn == "MODE" || pressedBtn == "ON" || pressedBtn == "AC" || pressedBtn == "eng ") tft.fillRect(0, 105, 320, 135, tft.color565(155, 150, 85));
+  else if (pressedBtn == "SHIFT" || pressedBtn == "ALPHA" || pressedBtn == "hyp " || pressedBtn == "INS") tft.fillRect(0, 110, 320, 17, tft.color565(155, 150, 85));
+  else if(pressedBtn == "DEL") tft.fillRect(0, 125, 320, 35, tft.color565(155, 150, 85));
 
   tft.setFont();
   tft.setTextSize(1);
@@ -1207,12 +1207,12 @@ void loop() {
   ///////////////////////////tab///////////////////////////
   if(shift) {
     tft.fillRect(0, 116, 7, 9, ILI9341_BLACK);
-    tft.setTextColor(tft.color565(150, 175, 130));
+    tft.setTextColor(tft.color565(155, 150, 85));
     tft.setCursor(1, 117);
     tft.print("S");
   } else if(alpha) {
     tft.fillRect(13, 116, 7, 9, ILI9341_BLACK);
-    tft.setTextColor(tft.color565(150, 175, 130));
+    tft.setTextColor(tft.color565(155, 150, 85));
     tft.setCursor(14, 117);
     tft.print("A");
   }
@@ -1241,17 +1241,17 @@ void loop() {
 
   if(angleUnit == 0) {
     tft.fillRect(190, 116, 7, 9, ILI9341_BLACK);
-    tft.setTextColor(tft.color565(150, 175, 130));
+    tft.setTextColor(tft.color565(155, 150, 85));
     tft.setCursor(190+1, 117);
     tft.print("D");
   } else if(angleUnit == 1) {
     tft.fillRect(190+13, 116, 7, 9, ILI9341_BLACK);
-    tft.setTextColor(tft.color565(150, 175, 130));
+    tft.setTextColor(tft.color565(155, 150, 85));
     tft.setCursor(190+14, 117);
     tft.print("R");
   } else if(angleUnit == 2) {
     tft.fillRect(190+26, 116, 7, 9, ILI9341_BLACK);
-    tft.setTextColor(tft.color565(150, 175, 130));
+    tft.setTextColor(tft.color565(155, 150, 85));
     tft.setCursor(190+27, 117);
     tft.print("G");
   }
@@ -1332,14 +1332,14 @@ void loop() {
         } else if(!isHex && !nothing) {
           tft.write(p[j]);
         } else {
-          tft.setTextColor(tft.color565(150, 175, 130));
+          tft.setTextColor(tft.color565(155, 150, 85));
           if(j == 0) tft.write(ins? 0xBA : 0xB8);
           else tft.write(0xB6);
           tft.setTextColor(ILI9341_BLACK);
         }
         printedCharsCount++;
         if(pressedBtn != "") {
-          tft.fillRect(0, 125, 320, 35, tft.color565(150, 175, 130));
+          tft.fillRect(0, 125, 320, 35, tft.color565(155, 150, 85));
           pressedBtn = "";
         }
         if(isHex) j += 3;
@@ -1363,7 +1363,7 @@ void loop() {
   if (currentIndicatorPos < 0) currentIndicatorPos = 0;
 
   if(lastCount != currentIndicatorPos) {
-    tft.setTextColor(tft.color565(150, 175, 130));
+    tft.setTextColor(tft.color565(155, 150, 85));
     tft.setCursor(0, 155);
     for(int i = 0; i < lastCount; i++) {
       tft.print(' ');
@@ -1377,7 +1377,7 @@ void loop() {
     last = now;
     indicator = !indicator;
     if(indicator) tft.setTextColor(ILI9341_BLACK);
-    else tft.setTextColor(tft.color565(150, 175, 130));
+    else tft.setTextColor(tft.color565(155, 150, 85));
     tft.setCursor(0, 155);
     
     for(int i = 0; i < currentIndicatorPos; i++) {
@@ -1589,7 +1589,7 @@ void loadFromHistory(int slot) {
   selectedLogIdx = -1;
   windowFirstLog = 0;
   lastPrintedLogIdx = -999;
-  tft.fillRect(0, 125, 320, 65, tft.color565(150, 175, 130));
+  tft.fillRect(0, 125, 320, 65, tft.color565(155, 150, 85));
 }
 
 void pushHistory() {
