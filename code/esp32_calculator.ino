@@ -263,9 +263,9 @@ void setup() {
 
   tft.begin();
   tft.setRotation(3);
-  //tft.fillScreen(ILI9341_BLACK);
-  //tft.fillScreen(tft.color565(60, 110, 40));
-  tft.fillScreen(tft.color565(150, 175, 130));
+  //tft.fillScreen(tft.color565(150, 175, 130));
+  tft.fillScreen(ILI9341_BLACK);
+  tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
 
   digitalWrite(TFT_BLK, HIGH);
 
@@ -502,7 +502,7 @@ void loop() {
     selectedLogIdx = -1;
     windowFirstLog = 0;
     lastPrintedLogIdx = -999;
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
     digitalWrite(TFT_BLK, LOW);
 
     gpio_hold_en((gpio_num_t)TFT_BLK);
@@ -562,7 +562,7 @@ void loop() {
     hyp = false;
   }
   else if(pressedBtn == "MODE") {
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
     shift = false;
     alpha = false;
     hyp = false;
@@ -588,7 +588,7 @@ void loop() {
       if(pressedBtn == "MODE") {
         modeNum++;
         if(modeNum > 3) break;
-        tft.fillScreen(tft.color565(150, 175, 130));
+        tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
       }
 
       int selected = 0;
@@ -624,7 +624,7 @@ void loop() {
         if(selected > 0) {
           displayMode = selected-1;
 
-          tft.fillScreen(tft.color565(150, 175, 130));
+          tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
           tft.setFont(&calcFont);
           tft.setCursor(0, 155);
 
@@ -698,7 +698,7 @@ void loop() {
         tft.setCursor(0, 216);
         tft.println("1");
         if(selected > 0) {
-          tft.fillScreen(tft.color565(150, 175, 130));
+          tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
           tft.setFont(&calcFont);
           tft.setCursor(0, 155);
           tft.println("ab/c d/c");
@@ -763,11 +763,11 @@ void loop() {
 
     } while(pressedBtn == "" || !isNumber(pressedBtn) || pressedBtn == "MODE");
 
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
     saveToEEPROM();
   }
   else if (pressedBtn == "CLR") {
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
     shift = false;
     alpha = false;
     hyp = false;
@@ -795,7 +795,7 @@ void loop() {
       } while(pressedBtn == "");
     } while(pressedBtn == "" || pressedBtn != "=");
 
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
 
     if(selected < 1) selected=1;
     else if(selected > 3) selected=3;
@@ -882,7 +882,7 @@ void loop() {
       pressedBtn = scanNumberKeypad();
     } while(pressedBtn == "" || pressedBtn != "=");
 
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
     saveToEEPROM();
   }
   else if(pressedBtn == "SPEC") {
@@ -960,7 +960,7 @@ void loop() {
     dot = 0;
   }
   else if (pressedBtn == "DRG") {
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
     shift = false;
     alpha = false;
     hyp = false;
@@ -977,7 +977,7 @@ void loop() {
       pressedBtn = scanNumberKeypad();
     } while(pressedBtn == "" || !isNumber(pressedBtn));
 
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
 
     int selected =  pressedBtn.toInt();
     if(selected < 1) selected=1;
@@ -1024,7 +1024,7 @@ void loop() {
     int size = 10;
     for(int i = 0; i < newResult.length(); i++) if(newResult[i] == '.') size = 11;
     newResult = newResult.substring(0, size);
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
 
     dot = 0;
     shift = false;
@@ -1041,7 +1041,7 @@ void loop() {
     int size = 10;
     for(int i = 0; i < newResult.length(); i++) if(newResult[i] == '.') size = 11;
     newResult = newResult.substring(0, size);
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
 
     dot = 0;
     shift = false;
@@ -1064,7 +1064,7 @@ void loop() {
         windowFirstLog = 0;
         lastPrintedLogIdx = -999;
       }
-      tft.fillScreen(tft.color565(150, 175, 130));
+      tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
     }
     if(!indicator2 && shouldPrependAns(pressedBtn) && err == "") expression[count++] = "Ans";
 
@@ -1197,7 +1197,7 @@ void loop() {
     }
   }
 
-  if (pressedBtn == "=" || pressedBtn == "%" || pressedBtn == "MODE" || pressedBtn == "ON" || pressedBtn == "AC" || pressedBtn == "eng ") tft.fillScreen(tft.color565(150, 175, 130));
+  if (pressedBtn == "=" || pressedBtn == "%" || pressedBtn == "MODE" || pressedBtn == "ON" || pressedBtn == "AC" || pressedBtn == "eng ") tft.fillRect(0, 105, 320, 135, tft.color565(150, 175, 130));
   else if (pressedBtn == "SHIFT" || pressedBtn == "ALPHA" || pressedBtn == "hyp " || pressedBtn == "INS") tft.fillRect(0, 110, 320, 17, tft.color565(150, 175, 130));
   else if(pressedBtn == "DEL") tft.fillRect(0, 125, 320, 35, tft.color565(150, 175, 130));
 
