@@ -10,7 +10,7 @@ void special(String pressed_btn) {
     spec = false;
     specialMenuState = 0;
     ansActive = false;
-    tft.fillScreen(tft.color565(150, 175, 130));
+    tft.fillScreen(tft.color565(155, 150, 85));
     return;
   }
 
@@ -18,13 +18,13 @@ void special(String pressed_btn) {
     ansActive = !ansActive;
 
     if (ansActive) {
-      tft.fillScreen(tft.color565(150, 175, 130));
+      tft.fillScreen(tft.color565(155, 150, 85));
 
       tft.setFont();
       tft.setTextSize(1);
       
       tft.fillRect(190, 116, 7, 9, ILI9341_BLACK);
-      tft.setTextColor(tft.color565(150, 175, 130));
+      tft.setTextColor(tft.color565(155, 150, 85));
       tft.setCursor(191, 117);
       tft.print("D");
 
@@ -95,7 +95,7 @@ void special(String pressed_btn) {
         tft.setTextColor(ILI9341_BLACK);
         tft.print('_');
       } else {
-        tft.setTextColor(tft.color565(150, 175, 130));
+        tft.setTextColor(tft.color565(155, 150, 85));
         tft.print('_');
       }
     }
